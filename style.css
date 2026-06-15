@@ -5,6 +5,7 @@
 }
 
 :root {
+    /* Dark */
     --body-bg: hsl(235, 21%, 11%); 
     --container-bg: hsl(235, 24%, 19%);
     --text: hsl(234, 39%, 85%);
@@ -13,6 +14,13 @@
     --checked-item: hsl(233, 14%, 35%);
     --border-outline: hsl(237, 14%, 26%);
     --btn-color: hsl(236, 9%, 61%);
+    --current-filter: hsl(220, 98%, 61%);
+
+    /* Light */
+    --body-bg-light: #d2d3db; 
+    --container-bg-light: hsl(0, 0%, 98%);
+    --border-outline-light: hsl(234, 39%, 85%);
+    --text-light: hsl(240, 33%, 1%);
 }
 
 
@@ -197,11 +205,51 @@ form {
 footer {
     margin: 50px 0 20px;
     font-size: 12px;
+    color: var(--btn-color);
 }
 
 footer a {
-    color: var(--text);
+    color: var(--btn-color);
     font-weight: bold;
+}
+
+body.light-mode {
+    background-image: url(images/bg-desktop-light.jpg);
+    background-color: var(--body-bg-light);
+}
+
+body.light-mode .todo-input {
+    background-color: var(--container-bg-light);
+    color: var(--text-light);
+}
+
+body.light-mode .input-circle,
+body.light-mode .todo-item,
+body.light-mode .check-btn {
+    border-color: var(--border-outline-light);
+}
+
+body.light-mode .list-container {
+    border: none;
+    background-color: var(--container-bg-light);
+}
+
+body.light-mode .todo-item {
+    color: var(--text-light);
+}
+
+body.light-mode .controls-container {
+    background: var(--container-bg-light);
+    border: none;
+}
+
+body.light-mode .controls-container .btn:hover {
+    color: var(--text-light);
+}
+
+body.light-mode footer,
+body.light-mode footer a {
+    color: var(--btn-color);
 }
 
 @media(max-width: 720px) {
@@ -211,6 +259,16 @@ footer a {
 
     .container {
         width: 60%;
+    }
+
+    .delete-btn {
+        opacity: 0.5;
+    }
+
+    body.light-mode .count-clear-container,
+    body.light-mode .filters-container {
+        background-color: var(--container-bg-light);
+        border: none;
     }
 
     .count-clear-container {
@@ -233,6 +291,10 @@ footer a {
         border: none;
     }
 
+    body.light-mode .controls-container {
+        background: transparent;
+    }
+
     .filters-container {
         justify-content: center;
         background-color: var(--container-bg);
@@ -244,12 +306,17 @@ footer a {
 }
 
 @media(max-width: 575px) {
-    .container {
-        width: 85%;
+    body {
+        background-image: url(images/bg-mobile-dark.jpg);
+        font-size: 14px;
     }
 
-    body {
-        font-size: 14px;
+    body.light-mode {
+        background-image: url(images/bg-mobile-light.jpg);
+    }
+
+    .container {
+        width: 85%;
     }
 
     .todo-item p {
