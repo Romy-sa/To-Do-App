@@ -210,7 +210,7 @@ footer a {
     }
 
     .container {
-        width: 75%;
+        width: 60%;
     }
 
     .count-clear-container {
@@ -245,10 +245,14 @@ footer a {
 
 @media(max-width: 575px) {
     .container {
-        width: 75%;
+        width: 85%;
     }
 
     body {
         font-size: 14px;
+    }
+
+    .todo-item p {
+        width: 110%;
     }
 }
