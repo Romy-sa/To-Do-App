@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>To-Do App</title>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>TODO</h1> 
+                <button class="toggle-mode" id="toggle-mode"><img src="images/icon-sun.svg" alt=""></button>               
+            </header>
+            
+            <form id="todo-form">
+                <label for="todo-input" ></label>
+                <div class="input-circle"></div>
+                <input id="todo-input" class="todo-input" type="text" placeholder="Create a new todo">
+            </form>
+
+            <div class="list-container">
+                <div class="todo-item">
+                    <button class="check-btn"><img src="images/icon-check.svg" alt=""></button>
+                    <p>Complete online Javascript course</p>
+                    <button class="delete-btn"><img src="images/icon-cross.svg" alt=""></button>
+                </div>
+                <div class="todo-item">
+                    <button class="check-btn"><img src="images/icon-check.svg" alt=""></button>
+                    <p>Jog around the park 3x</p>
+                    <button class="delete-btn"><img src="images/icon-cross.svg" alt=""></button>
+                </div>
+                <div class="todo-item">
+                    <button class="check-btn"><img src="images/icon-check.svg" alt=""></button>
+                    <p>10 minutes meditation</p>
+                    <button class="delete-btn"><img src="images/icon-cross.svg" alt=""></button>
+                </div>
+                <div class="todo-item">
+                    <button class="check-btn"><img src="images/icon-check.svg" alt=""></button>
+                    <p>Read for 1 hour</p>
+                    <button class="delete-btn"><img src="images/icon-cross.svg" alt=""></button>
+                </div>
+                <div class="todo-item">
+                    <button class="check-btn"><img src="images/icon-check.svg" alt=""></button>
+                    <p>Pick up groceries</p>
+                    <button class="delete-btn"><img src="images/icon-cross.svg" alt=""></button>
+                </div>
+                <div class="todo-item">
+                    <button class="check-btn"><img src="images/icon-check.svg" alt=""></button>
+                    <p>Complete Todo App on Frontend Mentor</p>
+                    <button class="delete-btn"><img src="images/icon-cross.svg" alt=""></button>
+                </div>
+            </div>
+
+            <div class="controls-container">
+                <div class="count-clear-container">
+                    <p id="items-count"></p>
+                    <button id="clear-completed-btn" class="btn">Clear Completed</button>                    
+                </div>
+
+                <div class="filters-container">
+                    <button id="all-edbtn" class="btn">All</button>
+                    <button id="active-btn" class="btn">Active</button>
+                    <button id="completed-btn" class="btn">Completed</button>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p7>Challange by <a href="https://www.frontendmentor.io/">Frontend Mentor</a>. Coded by <a href="https://www.linkedin.com/in/romysa-alfatih?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Romysa Alfatih</a></p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

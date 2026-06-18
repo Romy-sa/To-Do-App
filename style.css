@@ -1,0 +1,254 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --body-bg: hsl(235, 21%, 11%); 
+    --container-bg: hsl(235, 24%, 19%);
+    --text: hsl(234, 39%, 85%);
+    --hover: hsl(236, 33%, 92%);
+    --text-scnd: hsl(235, 16%, 43%);
+    --checked-item: hsl(233, 14%, 35%);
+    --border-outline: hsl(237, 14%, 26%);
+    --btn-color: hsl(236, 9%, 61%);
+}
+
+
+body {
+    background-color: var(--body-bg);
+    color: var(--text);
+    font-family: sans-serif;
+    min-height: 100vh;
+    margin-top: 50px;
+    background-image: url(images/bg-desktop-dark.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 12px;
+    color: #fff;
+}
+
+.toggle-mode {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+}
+
+form {
+    width: 100%;
+    position: relative;
+}
+
+.todo-input {
+    background-color: var(--container-bg);
+    border: none;
+    color: var(--text);
+    font-size: 14px;
+    width: 100%;
+    padding: 20px 60px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.todo-input:focus {
+    outline: 0;
+}
+
+.input-circle,
+.check-btn {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid var(--checked-item);
+    border-radius: 50%;
+    position: absolute;
+    top: 12px;
+    left: 10px;
+}
+
+.list-container {
+    background-color: var(--container-bg);
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    border: 1px solid var(--border-outline);
+    border-bottom: none;
+}
+
+.todo-item {
+    position: relative;
+    padding: 25px 60px;
+    border-bottom: 1px solid var(--border-outline
+    );
+}
+
+.check-btn {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.check-btn,
+.delete-btn {
+    cursor: pointer;
+}
+
+.check-btn img {
+    visibility: hidden;
+}
+
+.completed .check-btn {
+    background: linear-gradient(to right,#57ddff,#c058f3);
+}
+
+.completed .check-btn img {
+    visibility: visible;
+}
+
+.completed p {
+    color: var(--checked-item);
+    text-decoration: line-through;
+}
+
+.delete-btn {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+}
+
+.controls-container {
+    width: 100%;
+    font-size: 12px;
+    background-color: var(--container-bg);
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid var(--border-outline);
+    border-top: none;
+}
+
+.count-clear-container {
+    display: contents;
+}
+
+#items-count {
+    order: 1;
+    color: var(--btn-color);
+}
+
+.filters-container {
+    order: 2;
+    display: flex;
+    gap: 10px;
+}
+
+.filters-container .btn {
+    font-weight: bold;
+}
+
+#clear-completed-btn {
+    order: 3;
+    font-weight: bold;
+}
+
+.btn {
+    cursor: pointer;
+    font-size: 12px;
+    background: transparent;
+    border: none;
+    color: var(--btn-color);
+}
+
+.btn:hover {
+    color: var(--hover);
+}
+
+footer {
+    margin: 50px 0 20px;
+    font-size: 12px;
+}
+
+footer a {
+    color: var(--text);
+    font-weight: bold;
+}
+
+@media(max-width: 720px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 75%;
+    }
+
+    .count-clear-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: var(--container-bg);
+        width: 100%;
+        border: 1px solid var(--border-outline);
+        border-top: none;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .controls-container {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+        border: none;
+    }
+
+    .filters-container {
+        justify-content: center;
+        background-color: var(--container-bg);
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px solid var(--border-outline);
+    }
+
+}
+
+@media(max-width: 575px) {
+    .container {
+        width: 75%;
+    }
+
+    body {
+        font-size: 14px;
+    }
+}
