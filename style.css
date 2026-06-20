@@ -85,6 +85,10 @@ form {
     outline: 0;
 }
 
+#input-submit-btn {
+    display: none;
+}
+
 .input-circle,
 .check-btn {
     width: 30px;
@@ -178,11 +182,11 @@ form {
 .filters-container {
     order: 2;
     display: flex;
-    gap: 10px;
 }
 
 .filters-container .btn {
     font-weight: bold;
+    margin: 0 10px;
 }
 
 #clear-completed-btn {
@@ -200,6 +204,10 @@ form {
 
 .btn:hover {
     color: var(--hover);
+}
+
+.btn.current {
+    color: var(--current-filter);
 }
 
 footer {
@@ -243,7 +251,7 @@ body.light-mode .controls-container {
     border: none;
 }
 
-body.light-mode .controls-container .btn:hover {
+body.light-mode .btn:hover {
     color: var(--text-light);
 }
 

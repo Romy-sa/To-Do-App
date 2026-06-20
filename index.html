@@ -16,10 +16,11 @@
             <form id="todo-form">
                 <label for="todo-input" ></label>
                 <div class="input-circle"></div>
-                <input id="todo-input" class="todo-input" type="text" placeholder="Create a new todo">
+                <input id="todo-input" name="todo-input" aria-label="todo-input-field" class="todo-input" type="text" placeholder="Create a new todo">
+                <button id="input-submit-btn" type="submit" aria-hidden="true"></button>
             </form>
 
-            <div class="list-container">
+            <div id="list-container" class="list-container">
                 <div class="todo-item">
                     <button class="check-btn"><img src="images/icon-check.svg" alt=""></button>
                     <p>Complete online Javascript course</p>
@@ -59,7 +60,7 @@
                 </div>
 
                 <div class="filters-container">
-                    <button id="all-edbtn" class="btn">All</button>
+                    <button id="all-btn" class="btn current">All</button>
                     <button id="active-btn" class="btn">Active</button>
                     <button id="completed-btn" class="btn">Completed</button>
                 </div>
