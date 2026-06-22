@@ -8,7 +8,11 @@ const allBtn = document.getElementById("all-btn");
 const activeBtn = document.getElementById("active-btn");
 const completedBtn = document.getElementById("completed-btn");
 
-let current;
+let currentFilter;
+let current = localStorage.getItem(currentFilter) || "all";
+
+setCurrentFilter(current);
+updateCurrentFilter();
 
 //  update number of items left on page load time
 updateItemsCount();
@@ -80,7 +84,6 @@ completedBtn.addEventListener("click", () => {
 //  Update count function
 function updateItemsCount() {
     let count = document.querySelectorAll(".list-container .todo-item:not(.completed)").length;
-    console.log(count);
     itemsCount.innerText = `${count} item(s) left`;
 }
 
@@ -112,10 +115,11 @@ function addNewTodo(item) {
 function setCurrentFilter(filter) {
     current = filter;
 
+    localStorage.setItem(currentFilter, current);
     if(filter == "all") {
         allBtn.classList = "btn current";
         activeBtn.classList = "btn";
-        completedBtn.classList = "btn"
+        completedBtn.classList = "btn";
     } else if (filter == "active") {
         allBtn.classList = "btn";
         activeBtn.classList = "btn current";
@@ -137,7 +141,6 @@ function updateCurrentFilter() {
         document.querySelectorAll(".todo-item:not(.completed)").forEach(item => item.style.display = "flex");
 
         document.querySelectorAll(".todo-item.completed").forEach(item => item.style.display = "none");
-        console.log(current);
     } 
     
     else {
