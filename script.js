@@ -8,8 +8,9 @@ const allBtn = document.getElementById("all-btn");
 const activeBtn = document.getElementById("active-btn");
 const completedBtn = document.getElementById("completed-btn");
 
-let currentFilter;
-let current = localStorage.getItem(currentFilter) || "all";
+let current = localStorage.getItem("currentFilter") || "all";
+
+getSavedItems();
 
 setCurrentFilter(current);
 updateCurrentFilter();
@@ -23,6 +24,7 @@ todoForm.addEventListener("submit", (e) => {
     addNewTodo(todoInput.value);
     todoInput.value = "";
     updateCurrentFilter();
+    saveItemsLocally();
 });
 
 //  Toggle mode event handler
@@ -38,31 +40,35 @@ toggleModeBtn.addEventListener("click", () => {
 
 //  Check & delete todo items event handler 
 listContainer.addEventListener("click", (e) => {
-    console.log(e.target);
     //  Check todo item
     if(e.target.matches(".check-btn")) {
         e.target.parentElement.classList.toggle("completed");
         updateItemsCount();
         updateCurrentFilter();
+        saveItemsLocally();
     } else if(e.target.matches(".check-btn img")) {
         e.target.parentElement.parentElement.classList.toggle("completed");
         updateItemsCount();
         updateCurrentFilter();
+        saveItemsLocally();
     }
 
     //  Delete todo item 
     if(e.target.matches(".delete-btn")) {
         e.target.parentElement.remove();
         updateItemsCount();
+        saveItemsLocally();
     } else if (e.target.matches(".delete-btn img")) {
         e.target.parentElement.parentElement.remove();
         updateItemsCount();
+        saveItemsLocally();
     }
 });
 
 //  Clear completed items button event handler
 clearCompletedBtn.addEventListener("click", () => {
     document.querySelectorAll(".todo-item.completed").forEach(item => item.remove());
+        saveItemsLocally();
 });
 
 //  Filters event handling
@@ -88,9 +94,13 @@ function updateItemsCount() {
 }
 
 //  Add new todo item function
-function addNewTodo(item) {
+function addNewTodo(item, completed = false) {
     let todoContainer = document.createElement("div");
     todoContainer.classList.add("todo-item");
+
+    if(completed) {
+        todoContainer.classList.add("completed");
+    }
 
     let todoText = document.createElement("p");
     todoText.textContent = `${item}`;
@@ -109,13 +119,15 @@ function addNewTodo(item) {
     todoContainer.appendChild(deleteBtn);
 
     listContainer.appendChild(todoContainer);
+
+    updateItemsCount();
 }
 
 //  Set the current filter of todo list
 function setCurrentFilter(filter) {
     current = filter;
 
-    localStorage.setItem(currentFilter, current);
+    localStorage.setItem("currentFilter", current);
     if(filter == "all") {
         allBtn.classList = "btn current";
         activeBtn.classList = "btn";
@@ -149,3 +161,23 @@ function updateCurrentFilter() {
         document.querySelectorAll(".todo-item:not(.completed)").forEach(item => item.style.display = "none");
     }
 }
+
+function saveItemsLocally() {
+    let items = [];
+    listContainer.querySelectorAll(".todo-item").forEach(item => {
+        let itemInfo = {
+            paragraph: item.querySelector("p").textContent,
+            completed: item.classList.contains("completed"),
+        }
+
+        items.push(itemInfo);
+    });
+
+    localStorage.setItem("list", JSON.stringify(items));
+}
+
+function getSavedItems() {
+    JSON.parse(localStorage.getItem("list")).forEach(item => {
+        addNewTodo(item.paragraph, item.completed);
+    });
+ }
