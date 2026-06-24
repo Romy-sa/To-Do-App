@@ -179,7 +179,11 @@ function saveItemsLocally() {
 
 //     Retrieve saved items from local storage 
 function getSavedItems() {
-    JSON.parse(localStorage.getItem("list")).forEach(item => {
+    let savedList = localStorage.getItem("list");
+    
+    if(savedList) {
+        JSON.parse(localStorage.getItem("list")).forEach(item => {
         addNewTodo(item.paragraph, item.completed);
     });
+    }
  }
