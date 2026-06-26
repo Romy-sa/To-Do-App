@@ -19,7 +19,7 @@
     --current-filter: hsl(220, 98%, 61%);
 
     /* Light */
-    --body-bg-light: #d2d3db; 
+    --checked-item-light: #d2d3db; 
     --container-bg-light: hsl(0, 0%, 98%);
     --border-outline-light: hsl(234, 39%, 85%);
     --text-light: hsl(240, 33%, 1%);
@@ -260,7 +260,7 @@ body.light-mode .todo-item {
 }
 
 body.light-mode .completed p {
-    color: var(--body-bg-light);
+    color: var(--checked-item-light);
 }
 
 body.light-mode .controls-container {
