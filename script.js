@@ -162,6 +162,7 @@ function updateCurrentFilter() {
     }
 }
 
+//   Save Items locally
 function saveItemsLocally() {
     let items = [];
     listContainer.querySelectorAll(".todo-item").forEach(item => {
@@ -176,6 +177,7 @@ function saveItemsLocally() {
     localStorage.setItem("list", JSON.stringify(items));
 }
 
+//     Retrieve saved items from local storage 
 function getSavedItems() {
     let savedList = localStorage.getItem("list");
 
