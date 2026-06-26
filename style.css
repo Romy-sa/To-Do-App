@@ -241,7 +241,7 @@ body.light-mode .check-btn {
 body.light-mode .list-container {
     border: none;
     background-color: var(--container-bg-light);
-    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 body.light-mode .todo-item {
@@ -251,10 +251,6 @@ body.light-mode .todo-item {
 body.light-mode .controls-container {
     background: var(--container-bg-light);
     border: none;
-}
-
-body.light-mode .filters-container,
-body.light-mode .count-clear-container {
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
@@ -284,10 +280,15 @@ body.light-mode footer a {
         opacity: 0.5;
     }
 
+    body.light-mode .controls-container {
+        box-shadow: none;
+    }
+
     body.light-mode .count-clear-container,
     body.light-mode .filters-container {
         background-color: var(--container-bg-light);
         border: none;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
 
     .count-clear-container {
