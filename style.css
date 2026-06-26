@@ -241,7 +241,7 @@ body.light-mode .check-btn {
 body.light-mode .list-container {
     border: none;
     background-color: var(--container-bg-light);
-    box-shadow: 0 5px 5px rgba(0,0,0,0.6);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
 }
 
 body.light-mode .todo-item {
@@ -255,7 +255,7 @@ body.light-mode .controls-container {
 
 body.light-mode .filters-container,
 body.light-mode .count-clear-container {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 body.light-mode .btn:hover {
