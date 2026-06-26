@@ -207,6 +207,12 @@ form {
     color: var(--btn-color);
 }
 
+.btn,
+.check-btn,
+.delete-btn {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .btn:hover {
     color: var(--hover);
 }
