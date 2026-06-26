@@ -259,6 +259,10 @@ body.light-mode .todo-item {
     color: var(--text-light);
 }
 
+body.light-mode .completed p {
+    color: var(--body-bg-light);
+}
+
 body.light-mode .controls-container {
     background: var(--container-bg-light);
     border: none;
