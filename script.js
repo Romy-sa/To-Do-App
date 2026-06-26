@@ -68,7 +68,7 @@ listContainer.addEventListener("click", (e) => {
 //  Clear completed items button event handler
 clearCompletedBtn.addEventListener("click", () => {
     document.querySelectorAll(".todo-item.completed").forEach(item => item.remove());
-        saveItemsLocally();
+    saveItemsLocally();
 });
 
 //  Filters event handling
@@ -177,7 +177,13 @@ function saveItemsLocally() {
 }
 
 function getSavedItems() {
-    JSON.parse(localStorage.getItem("list")).forEach(item => {
-        addNewTodo(item.paragraph, item.completed);
-    });
+    let savedList = localStorage.getItem("list");
+
+    if(savedList) {
+        listContainer.innerHTML = "";
+        JSON.parse(localStorage.getItem("list")).forEach(item => {
+            addNewTodo(item.paragraph, item.completed);
+        });       
+    }
+
  }
