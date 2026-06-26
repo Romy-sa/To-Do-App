@@ -199,6 +199,7 @@ form {
 }
 
 .btn {
+    font-family: "Josefin Sans", sans-serif; 
     cursor: pointer;
     font-size: 12px;
     background: transparent;
@@ -233,6 +234,7 @@ body.light-mode {
 body.light-mode .todo-input {
     background-color: var(--container-bg-light);
     color: var(--text-light);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 body.light-mode .input-circle,
