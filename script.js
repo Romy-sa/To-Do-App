@@ -11,6 +11,7 @@ const completedBtn = document.getElementById("completed-btn");
 let current = localStorage.getItem("currentFilter") || "all";
 
 getSavedItems();
+getSavedMode();
 
 setCurrentFilter(current);
 updateCurrentFilter();
@@ -30,11 +31,11 @@ todoForm.addEventListener("submit", (e) => {
 //  Toggle mode event handler
 toggleModeBtn.addEventListener("click", () => {
     if(document.body.classList.contains("light-mode")) {
-        document.body.classList.remove("light-mode");
-        toggleModeBtn.innerHTML = '<img src="./images/icon-sun.svg">';
+        setMode("dark");
+        localStorage.setItem("mode", "dark");
     } else {
-        document.body.classList.add("light-mode");
-        toggleModeBtn.innerHTML = '<img src="./images/icon-moon.svg">';
+        setMode("light");
+        localStorage.setItem("mode", "light");
     }
 });
 
@@ -86,6 +87,18 @@ completedBtn.addEventListener("click", () => {
     setCurrentFilter("completed");
     updateCurrentFilter();
 });
+
+//  Set mode function
+function setMode(mode) {
+    if(mode == "light") {
+        document.body.classList.add("light-mode");
+        toggleModeBtn.innerHTML = '<img src="./images/icon-moon.svg">';
+
+    } else {
+        document.body.classList.remove("light-mode");
+        toggleModeBtn.innerHTML = '<img src="./images/icon-sun.svg">';
+    }
+}
 
 //  Update count function
 function updateItemsCount() {
@@ -188,4 +201,12 @@ function getSavedItems() {
         });       
     }
 
+ }
+
+ function getSavedMode() {
+    let savedMode = localStorage.getItem("mode"); 
+
+    if(savedMode) {
+        setMode(savedMode);
+    }
  }

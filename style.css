@@ -224,7 +224,7 @@ footer a {
 
 body.light-mode {
     background-image: url(images/bg-desktop-light.jpg);
-    background-color: var(--body-bg-light);
+    background-color: var(--container-bg-light);
 }
 
 body.light-mode .todo-input {
@@ -241,6 +241,7 @@ body.light-mode .check-btn {
 body.light-mode .list-container {
     border: none;
     background-color: var(--container-bg-light);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.6);
 }
 
 body.light-mode .todo-item {
@@ -252,8 +253,17 @@ body.light-mode .controls-container {
     border: none;
 }
 
+body.light-mode .filters-container,
+body.light-mode .count-clear-container {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+}
+
 body.light-mode .btn:hover {
     color: var(--text-light);
+}
+
+body.light-mode .btn.current {
+    color: var(--current-filter);
 }
 
 body.light-mode footer,
