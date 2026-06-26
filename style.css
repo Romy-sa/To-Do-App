@@ -337,6 +337,7 @@ body.light-mode footer a {
 @media(max-width: 360px) {
     body {
         background-image: url(images/bg-mobile-dark.jpg);
+        background-size: 100vw 40vh;
         font-size: 14px;
     }
 
