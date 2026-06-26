@@ -325,6 +325,10 @@ body.light-mode footer a {
 }
 
 @media(max-width: 575px) {
+    body {
+        background-size: 100vw 40vh;
+    }
+
     .container {
         width: 85%;
     }
